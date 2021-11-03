@@ -1,0 +1,25 @@
+# Configuration of the Salesforce CRM
+myapp:
+  salesforce:
+    host: https://<my-app>.my.salesforce.com
+    # Change vXX.X version if required
+    base-path: ${myapp.salesforce.host}/services/data/v53.0
+    # Replace the your-resource-path placeholder by your own resource path
+    resource-path: /sobjects/<your-resource-path>/{id}
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          salesforce:
+            provider: salesforce
+            client-authentication-method: CLIENT_SECRET_POST
+            authorization-grant-type: password
+            client-id: <my-cliend-id>
+            client-secret: <my-cliend-secret>
+            username: <my-secret>
+            password: <my-password>
+        provider:
+          salesforce:
+            token-uri: ${myapp.salesforce.host}/services/oauth2/token
