@@ -31,7 +31,7 @@ public class OAuth2ClientConfig {
                         .build();
 
         // Using AuthorizedClientServiceOAuth2AuthorizedClientManager instead of the DefaultOAuth2AuthorizedClientManager
-        // to support asycnhrone execution trough the @Async annotation
+        // to support asynchrone execution through the @Async annotation
         AuthorizedClientServiceOAuth2AuthorizedClientManager authorizedClientManager =
                 new AuthorizedClientServiceOAuth2AuthorizedClientManager(
                         clientRegistrationRepository, authorizedClientService);
@@ -52,7 +52,7 @@ public class OAuth2ClientConfig {
 
     @Bean
     public WebClient salesforceWebClient(OAuth2AuthorizedClientManager authorizedClientManager) {
-        // Should use a ServerAuth2AuthorizedClientExchangeFilterFunction in a rective stack
+        // May use a ServerAuth2AuthorizedClientExchangeFilterFunction in a reactive stack
         ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
                 new ServletOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
         oauth2Client.setDefaultClientRegistrationId(SALESFORCE_CLIENT_NAME);
