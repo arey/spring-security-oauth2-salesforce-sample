@@ -14,7 +14,7 @@ spring:
         registration:
           salesforce:
             provider: salesforce
-            client-authentication-method: CLIENT_SECRET_POST
+            client-authentication-method: client_secret_post
             authorization-grant-type: password
             client-id: ${CLIENT_ID}
             client-secret: ${CLIENT_SECRET}
